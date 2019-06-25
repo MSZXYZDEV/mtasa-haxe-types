@@ -533,58 +533,104 @@ extern class Functions {
 	/**
 		This function retrieves the current gametype as set by setGameType. The game type is displayed in the server browser next to the server's name.Returns the gametype as a string. If no gametype is set it returns nil.
 
+
+
 		@see https://wiki.mtasa.com/wiki/GetGameType
+
 	**/
-	static function getGameType():Void
+	static function getGameType():String
 
 	/**
 		This function retrieves the current mapname as set by setMapName.Returns the mapname as a string. If no mapname is set it returns nil.
 
 		@see https://wiki.mtasa.com/wiki/GetMapName
+
 	**/
-	static function getMapName():Void
+	static function getMapName():String
 
 	/**
 		This function gets a rule value. A rule value is a string that can be viewed by server browsers and used for filtering the server list.
 
+		@param key The name of the rule
+
 		@see https://wiki.mtasa.com/wiki/GetRuleValue
+
 	**/
-	static function getRuleValue():Void
+	static function getRuleValue(key:String):String
 
 	/**
+
 		This function removes a set rule value that can be viewed by server browsers.Returns true if the rule value was removed, false if it failed.
 
+		@param key The name of the rule you wish to remove
+
 		@see https://wiki.mtasa.com/wiki/RemoveRuleValue
+
 	**/
-	static function removeRuleValue():Void
+	static function removeRuleValue(key:String):String
 
 	/**
 		This function sets a string containing a name for the game type. This should be the game-mode that is active, for example "Capture The Flag" or "Deathmatch". This is then displayed in the server browser and external server browsers.It should be noted that mapmanager handles this automatically for gamemodes that utilise the map/gamemode system.
 
+		@param gameType A string containing a name for the game mode, or false to clear it
+
 		@see https://wiki.mtasa.com/wiki/SetGameType
+
 	**/
-	static function setGameType():Void
+	static function setGameType(gameType:String):String
 
 	/**
 		This function is used to set a map name that will be visible in the server browser. In practice you should generally rely on the mapmanager to do this for you.Returns true if map name was set successfully, false otherwise.
 
+		@param mapName The name you wish the server browser to show
+
 		@see https://wiki.mtasa.com/wiki/SetMapName
+
 	**/
-	static function setMapName():Void
+	static function setMapName(mapName:String):String
 
 	/**
 		This function sets a rule value that can be viewed by server browsers.Returns true if the rule value was set, false if invalid arguments were specified.
 
+		@param key The name of the rule
+
+		@param value The value you wish to set for the rule
+
 		@see https://wiki.mtasa.com/wiki/SetRuleValue
+
 	**/
-	static function setRuleValue():Void
+	static function setRuleValue(key:String, value:String):String
 
 	/**
 		This function creates a blip element, which is displayed as an icon on the client's radar.
 
+		@param x The x position of the blip, in world coordinates.
+
+		@param y The y position of the blip, in world coordinates.
+
+		@param z The z position of the blip, in world coordinates.
+
+		@param icon The icon that the radar blips should be. Valid values can be seen at Radar Blips
+
+		@param size The size of the radar blip. Only applicable to the Marker icon. Default is 2. Maximum is 25.
+
+		@param r The amount of red in the blip's color (0-255). Only applicable to the Marker icon. Default is 255
+
+		@param g The amount of green in the blip's color (0-255). Only applicable to the Marker icon. Default is 255
+
+		@param b The amount of blue in the blip's color (0-255). Only applicable to the Marker icon. Default is 255
+
+		@param a The amount of alpha in the blip's color (0-255). Only applicable to the Marker icon. Default is 255
+
+		@param ordering This defines the blip's Z-level ordering (-32768-32767). Default is 0.
+
+		@param visibleDistance The maximum distance from the camera at which the blip is still visible (0-65535)
+
 		@see https://wiki.mtasa.com/wiki/CreateBlip
+
 	**/
-	static function createBlip():Void
+	static function createBlip(float:x, float:y, float:z [, icon:0, size:2, r:255, g:0, b:0, a:255, ordering:0, visibleDistance:16383.0, element:visibleTo]):String
+
 
 	/**
 		This function creates a blip that is attached to an element. This blip is displayed as an icon on the client's radar and will 'follow' the element that it is attached to around.
